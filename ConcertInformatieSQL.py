@@ -7,7 +7,7 @@
 
 ### ---------Bibliotheken en globale variabelen -------
 import sqlite3
-with sqlite3.connect("") as db:
+with sqlite3.connect("database.db") as db:
     cursor = db.cursor()
 ### ---------Functie definities  ----------------------
 
