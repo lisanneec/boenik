@@ -1,10 +1,14 @@
-'''
-Vul hier de naam van jullie programma in:
-hoi
-Onze namen:
-Bo en Lisanne
+# Vul hier de naam van je programma in:
+# 
+# 
+# Vul hier jullie namen in:
+# 
+# 
+
+### ---------Bibliotheken en globale variabelen -------
+
+### ---------Functie definities  ----------------------
 
 
 
-
-'''
+### ---------Hoofdprogramma  ----------------
