@@ -16,6 +16,6 @@ def MaakNieuweTabellen():
         artiest_nummer_ID INTEGER PRIMARY KEY AUTOINCREMENT,
         artiest_naam TEXT NOT NULL,
         artiest_band TEXT NOT NULL);""")
-MaakNieuweTabellen()
+
 
 ### ---------Hoofdprogramma  ----------------
