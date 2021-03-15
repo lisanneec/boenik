@@ -9,8 +9,8 @@
 import sqlite3
 with sqlite3.connect("") as db:
     cursor = db.cursor()
+
 ### ---------Functie definities  ----------------------
+hallo
 
-
-
-### ---------Hoofdprogramma  ----------------
+ ### ---------Hoofdprogramma  ----------------
