@@ -38,7 +38,6 @@ def printTabel(tabel_naam):
 
 ### ---------Hoofdprogramma  ----------------
 MaakNieuweTabellen()
-
 cursor.execute("INSERT INTO tabel_artiest_gegevens VALUES(NULL, ?,?,?)", ("Josh Dan", "Twenty One Pilots", "1988-02-12"))
 cursor.execute("INSERT INTO tabel_artiest_gegevens VALUES(NULL, ?,?,?)", ("Brandon Wrie", "Panic! At the disco", "1992-11-07"))
 cursor.execute("INSERT INTO tabel_artiest_gegevens VALUES(NULL, ?,?,?)", ("Ryan Ross", "Panic! At the disco", "NULL"))
