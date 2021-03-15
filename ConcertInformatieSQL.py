@@ -16,27 +16,32 @@ def MaakNieuweTabellen():
         artiest_nummer_ID INTEGER PRIMARY KEY AUTOINCREMENT,
         artiest_naam TEXT NOT NULL,
         artiest_band TEXT NOT NULL,
-        artiest_geboorte TEXT);""")
+        artiest_geboorte TEXT NOT NULL);""")
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS tabel_concert_gegevens(
         concert_ID INTEGER PRIMARY KEY AUTOINCREMENT,
         artiest_nummer INTEGER FORGEIN KEY,
         naam_tour TEXT NOT NULL,
-        concert_gebouw INTEGER NOT NULL);""")
+        concert_gebouwen INTEGER NOT NULL);""")
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS gebouw_gegevens(
-        concert_gebouw PRIMARY KEY AUTOINCREMENT,
+        concert_gebouw INTEGER PRIMARY KEY AUTOINCREMENT,
         plaats_gebouw TEXT NOT NULL,
         postcode_gebouw TEXT NOT NULL,
         gebouw_adres TEXT NOT NULL,
         gebouwnaam TEXT NOT NULL);""")
 
-def getPlaats_Gebouw_UitTabel(gebouw_gegevens, concert_gebouw):
-    cursor.execute("SELECT concert_gebouw FROM " + gebouw_gegevens + " WHERE Titel = concert_gebouw;", (concert_gebouw,))
-    result = cursor.fetchone() # je wilt maar 1 rij met gegevens
-    print("Het concert gebouw" + concert_gebouw + "is:" )
-    print( result[0] ) #pakt het eerste ding uit resultaatrij, je wilt alleen de BoekID hebben
-    return( result[0] )
+def printTabel(tabel_naam):
+    cursor.execute("SELECT * FROM " + tabel_naam)
+    opgehaalde_gegevens = cursor.fetchall()
+    print("Tabel " + tabel_naam + ":", opgehaalde_gegevens)
 
 ### ---------Hoofdprogramma  ----------------
 MaakNieuweTabellen()
+
+cursor.execute("INSERT INTO tabel_artiest_gegevens VALUES(NULL, ?,?,?)", ("Josh Dan", "Twenty One Pilots", "1988-02-12"))
+cursor.execute("INSERT INTO tabel_artiest_gegevens VALUES(NULL, ?,?,?)", ("Brandon Wrie", "Panic! At the disco", "1992-11-07"))
+cursor.execute("INSERT INTO tabel_artiest_gegevens VALUES(NULL, ?,?,?)", ("Ryan Ross", "Panic! At the disco", "NULL"))
+cursor.execute("INSERT INTO tabel_artiest_gegevens VALUES(NULL, ?,?,?)", ("Tyler Joseph", "Panic! At the disco", "1987-02-04"))
+
+printTabel("tabel_artiest_gegevens")
