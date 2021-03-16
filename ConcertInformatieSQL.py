@@ -49,7 +49,6 @@ def vulTabelConcertgegevensMetGegevens(Artiestnummer_ID, Naamtour, Concertgebouw
 def zoekArtiest():
     gevonden_artiesten = zoekArtiestInTabel(ConcertInformatieGUI.input_ariest.get())
     print(gevonden_artiesten)
-    
 
 def zoekArtiestInTabel(ingevoerde_artiestnaam):
     cursor.execute("SELECT * FROM Artiestgegevens WHERE Artiestnaam = ?", (ingevoerde_artiestnaam,))
@@ -87,4 +86,3 @@ printTabel("Concertgegevens")
 printTabel("Gebouwgegevens")
 
 
-    
