@@ -12,35 +12,61 @@ with sqlite3.connect("database.db") as db:
 ### ---------Functie definities  ----------------------
 def MaakNieuweTabellen():
     cursor.execute("""
-        CREATE TABLE IF NOT EXISTS tabel_artiest_gegevens(
-        artiest_nummer_ID INTEGER PRIMARY KEY AUTOINCREMENT,
-        artiest_naam TEXT NOT NULL,
-        artiest_band TEXT NOT NULL,
-        artiest_geboorte TEXT NOT NULL);""")
+        CREATE TABLE IF NOT EXISTS Artiestgegevens(
+        Artiestnummer_ID INTEGER PRIMARY KEY AUTOINCREMENT,
+        Artiestnaam TEXT NOT NULL,
+        Artiestband TEXT NOT NULL,
+        Artiestgeboorte TEXT NOT NULL);""")
     cursor.execute("""
-        CREATE TABLE IF NOT EXISTS tabel_concert_gegevens(
-        concert_ID INTEGER PRIMARY KEY AUTOINCREMENT,
-        artiest_nummer INTEGER FORGEIN KEY,
-        naam_tour TEXT NOT NULL,
-        concert_gebouwen INTEGER NOT NULL);""")
+        CREATE TABLE IF NOT EXISTS Concertgegevens(
+        ConcertID INTEGER PRIMARY KEY AUTOINCREMENT,
+        Artiestnummer_ID INTEGER FORGEIN KEY,
+        Naamtour TEXT NOT NULL,
+        Concertgebouw_ID INTEGER NOT NULL);""")
     cursor.execute("""
-        CREATE TABLE IF NOT EXISTS gebouw_gegevens(
-        concert_gebouw INTEGER PRIMARY KEY AUTOINCREMENT,
-        plaats_gebouw TEXT NOT NULL,
-        postcode_gebouw TEXT NOT NULL,
-        gebouw_adres TEXT NOT NULL,
-        gebouwnaam TEXT NOT NULL);""")
+        CREATE TABLE IF NOT EXISTS Gebouwgegevens(
+        Concertgebouw_ID INTEGER PRIMARY KEY AUTOINCREMENT,
+        Plaatsgebouw TEXT NOT NULL,
+        Postcodegebouw TEXT NOT NULL,
+        Gebouwadres TEXT NOT NULL,
+        Gebouwnaam TEXT NOT NULL);""")
 
 def printTabel(tabel_naam):
     cursor.execute("SELECT * FROM " + tabel_naam)
     opgehaalde_gegevens = cursor.fetchall()
     print("Tabel " + tabel_naam + ":", opgehaalde_gegevens)
 
+def vulTabelArtiestgegevensMetGegevens(Artiestnaam, Artiestband, Artiestgeboorte): 
+    cursor.execute("INSERT INTO Artiestgegevens VALUES (NULL, ?, ?, ?) ", (Artiestnaam, Artiestband, Artiestgeboorte))
+    
+def vulTabelGebouwgegevensMetGegevens(Plaatsgebouw, Postcodegebouw, Gebouwadres, Gebouwnaam): 
+    cursor.execute("INSERT INTO Gebouwgegevens VALUES (NULL, ?, ?, ?, ?) ", (Plaatsgebouw, Postcodegebouw, Gebouwadres, Gebouwnaam))
+
+def vulTabelConcertgegevensMetGegevens(Artiestnummer_ID, Naamtour, Concertgebouw_ID): 
+    cursor.execute("INSERT INTO Concertgegevens VALUES (NULL, ?, ?, ?) ", (Artiestnummer_ID, Naamtour, Concertgebouw_ID))
+
+
 ### ---------Hoofdprogramma  ----------------
 MaakNieuweTabellen()
-cursor.execute("INSERT INTO tabel_artiest_gegevens VALUES(NULL, ?,?,?)", ("Josh Dan", "Twenty One Pilots", "1988-02-12"))
-cursor.execute("INSERT INTO tabel_artiest_gegevens VALUES(NULL, ?,?,?)", ("Brandon Wrie", "Panic! At the disco", "1992-11-07"))
-cursor.execute("INSERT INTO tabel_artiest_gegevens VALUES(NULL, ?,?,?)", ("Ryan Ross", "Panic! At the disco", "NULL"))
-cursor.execute("INSERT INTO tabel_artiest_gegevens VALUES(NULL, ?,?,?)", ("Tyler Joseph", "Panic! At the disco", "1987-02-04"))
+
+vulTabelArtiestgegevensMetGegevens("Josh Dun","Twenty One Pilots", "1988-02-12")
+vulTabelArtiestgegevensMetGegevens("Brendon Urie","Panic! At the disco", "1992-11-07")
+vulTabelArtiestgegevensMetGegevens("Ryan Ross","Panic! At the disco", "NULL")
+vulTabelGebouwgegevensMetGegevens("Amsterdam","1101DS", "De passage 10", "Ziggo Dome")
+vulTabelGebouwgegevensMetGegevens("Amsterdam","1101AX","Johan Cruijf 590", "AFAS")
+vulTabelGebouwgegevensMetGegevens("Nijmegen","6512AB","Station plein 1", "Doornroosje")
+vulTabelConcertgegevensMetGegevens(0,"Bandito",223)
+vulTabelConcertgegevensMetGegevens(1,"Pray for the Wicked",224)
+vulTabelConcertgegevensMetGegevens(2,"Pray for the Wicked",225)
+vulTabelArtiestgegevensMetGegevens("Josh Dun","Twenty One Pilots", "1988-02-12")
+vulTabelArtiestgegevensMetGegevens("Brendon Urie","Panic! At the disco", "1992-11-07")
+vulTabelArtiestgegevensMetGegevens("Ryan Ross","Panic! At the disco", "NULL")
+vulTabelGebouwgegevensMetGegevens("Amsterdam","1101DS", "De passage 10", "Ziggo Dome")
+vulTabelGebouwgegevensMetGegevens("Amsterdam","1101AX","Johan Cruijf 590", "AFAS")
+vulTabelGebouwgegevensMetGegevens("Nijmegen","6512AB","Station plein 1", "Doornroosje")
+vulTabelConcertgegevensMetGegevens(0,"Bandito",223)
+vulTabelConcertgegevensMetGegevens(1,"Pray for the Wicked",224)
+vulTabelConcertgegevensMetGegevens(2,"Pray for the Wicked",225)
 
 printTabel("tabel_artiest_gegevens")
+printTabel("tabel_concert_gegevens")
