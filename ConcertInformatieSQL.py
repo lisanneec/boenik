@@ -80,9 +80,4 @@ vulTabelConcertgegevensMetGegevens(0,"Bandito",223)
 vulTabelConcertgegevensMetGegevens(1,"Pray for the Wicked",224)
 vulTabelConcertgegevensMetGegevens(2,"Pray for the Wicked",225)
 
-#OUTPUT
-printTabel("Artiestgegevens")
-printTabel("Concertgegevens")
-printTabel("Gebouwgegevens")
-
 
