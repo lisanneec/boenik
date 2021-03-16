@@ -49,10 +49,13 @@ def vulTabelConcertgegevensMetGegevens(Artiestnummer_ID, Naamtour, Concertgebouw
 def zoekArtiest():
     gevonden_artiesten = zoekArtiestInTabel(ConcertInformatieGUI.input_ariest.get())
     print(gevonden_artiesten)
+    
+
 def zoekArtiestInTabel(ingevoerde_artiestnaam):
     cursor.execute("SELECT * FROM Artiestgegevens WHERE Artiestnaam = ?", (ingevoerde_artiestnaam,))
     zoek_resultaat = cursor.fetchall()
-    
+    if zoek_resultaat == []:
+        print("Geen artiesten gevonden")
     return zoek_resultaat
 
 ### ---------Hoofdprogramma  ----------------
@@ -82,3 +85,6 @@ vulTabelConcertgegevensMetGegevens(2,"Pray for the Wicked",225)
 printTabel("Artiestgegevens")
 printTabel("Concertgegevens")
 printTabel("Gebouwgegevens")
+
+
+    
