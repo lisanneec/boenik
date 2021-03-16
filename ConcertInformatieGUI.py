@@ -34,17 +34,19 @@ tkst.grid(row = 3, column = 0, sticky = "W")
 #Concert
 concertnaamLbl = Label( venster, text = "Naam van concert: " )
 concertnaamLbl.grid(row = 4, column = 0, sticky = "W")
-menuConcert = Listbox(venster,)
+menuConcert = Listbox(venster, height=6, width=50)
+menuConcert.grid(row=4, column=1)
 
 #Gebouw
 gebouwnaamLbl = Label(venster, text = "Gebouwnaam: ")
 gebouwnaamLbl.grid(row = 5, column = 0, sticky = "W")
-menuGebouw = Listbox(venster,)
-
+menuGebouw = Listbox(venster,height=6, width=50)
+menuGebouw.grid(row=5, column=1)
 #GegevensConcert
 ConcertgegLbl = Label(venster, text="Concertgegevens: ")
 ConcertgegLbl.grid(row=6, column=0, sticky = "W")
-menuGegevens = Listbox(venster, )
+menuGegevens = Listbox(venster, height=6, width=50)
+menuGegevens.grid(row=6, column= 1)
 
 #BTN TOON GEGEVENS 2
 toonGegevensknop2 = Button(venster, text = "Toon gegevens", width = 15, command="")
