@@ -11,7 +11,7 @@ artiest = Label(venster, text="Artiestnaam: ")
 input_ariest = StringVar()
 inputField_artiest = Entry(venster, textvariable=input_ariest)
 inputField_artiest.grid(row = 1, column = 1, sticky = "W")
-btnSearchArtiest = Button(venster, text ="Zoek Artiest", width=10, command="")
+btnSearchArtiest = Button(venster, text ="Zoek Artiest", width=10, command=ConcertInformatieSQL.zoekArtiest)
 btnSearchArtiest.grid(row=1, column=4)
 
 #sluitenVENSTER

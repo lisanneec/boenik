@@ -7,6 +7,7 @@
 
 ### ---------Bibliotheken en globale variabelen -------
 import sqlite3
+import ConcertInformatieGUI
 with sqlite3.connect("database.db") as db:
     cursor = db.cursor()
 ### ---------Functie definities  ----------------------
@@ -45,10 +46,19 @@ def vulTabelGebouwgegevensMetGegevens(Plaatsgebouw, Postcodegebouw, Gebouwadres,
 def vulTabelConcertgegevensMetGegevens(Artiestnummer_ID, Naamtour, Concertgebouw_ID): 
     cursor.execute("INSERT INTO Concertgegevens VALUES (NULL, ?, ?, ?) ", (Artiestnummer_ID, Naamtour, Concertgebouw_ID))
 
+def zoekArtiest():
+    gevonden_artiesten = zoekArtiestInTabel(ConcertInformatieGUI.input_ariest.get())
+    print(gevonden_artiesten)
+def zoekArtiestInTabel(ingevoerde_artiestnaam):
+    cursor.execute("SELECT * FROM Artiestgegevens WHERE Artiestnaam = ?", (ingevoerde_artiestnaam,))
+    zoek_resultaat = cursor.fetchall()
+    
+    return zoek_resultaat
 
 ### ---------Hoofdprogramma  ----------------
 MaakNieuweTabellen()
 
+#GEGEVENS TABELLEN
 vulTabelArtiestgegevensMetGegevens("Josh Dun","Twenty One Pilots", "1988-02-12")
 vulTabelArtiestgegevensMetGegevens("Brendon Urie","Panic! At the disco", "1992-11-07")
 vulTabelArtiestgegevensMetGegevens("Ryan Ross","Panic! At the disco", "NULL")
@@ -68,6 +78,7 @@ vulTabelConcertgegevensMetGegevens(0,"Bandito",223)
 vulTabelConcertgegevensMetGegevens(1,"Pray for the Wicked",224)
 vulTabelConcertgegevensMetGegevens(2,"Pray for the Wicked",225)
 
+#OUTPUT
 printTabel("Artiestgegevens")
 printTabel("Concertgegevens")
 printTabel("Gebouwgegevens")
