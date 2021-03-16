@@ -68,5 +68,6 @@ vulTabelConcertgegevensMetGegevens(0,"Bandito",223)
 vulTabelConcertgegevensMetGegevens(1,"Pray for the Wicked",224)
 vulTabelConcertgegevensMetGegevens(2,"Pray for the Wicked",225)
 
-printTabel("tabel_artiest_gegevens")
-printTabel("tabel_concert_gegevens")
+printTabel("Artiestgegevens")
+printTabel("Concertgegevens")
+printTabel("Gebouwgegevens")
