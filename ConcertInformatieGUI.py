@@ -42,6 +42,7 @@ gebouwnaamLbl = Label(venster, text = "Gebouwnaam: ")
 gebouwnaamLbl.grid(row = 5, column = 0, sticky = "W")
 menuGebouw = Listbox(venster,height=6, width=50)
 menuGebouw.grid(row=5, column=1)
+
 #GegevensConcert
 ConcertgegLbl = Label(venster, text="Concertgegevens: ")
 ConcertgegLbl.grid(row=6, column=0, sticky = "W")
@@ -51,8 +52,10 @@ menuGegevens.grid(row=6, column= 1)
 #BTN TOON GEGEVENS 2
 toonGegevensknop2 = Button(venster, text = "Toon gegevens", width = 15, command="")
 toonGegevensknop2.grid(row=6, column=2, sticky = "W")
+
 #sluitenVENSTER
 closebtn = Button(venster, text="Sluit venster", width=10, command=venster.destroy)
 closebtn.grid(row = 8, column = 2, sticky = "W")
+
 #venster blijft open
 venster.mainloop()
