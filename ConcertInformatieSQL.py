@@ -48,9 +48,9 @@ def vulTabelConcertgegevensMetGegevens(Artiestnummer_ID, Naamtour, Concertgebouw
 
 def zoekArtiest():
     gevonden_artiesten = zoekArtiestInTabel(ConcertInformatieGUI.input_ariest.get())
-    
     for rij in gevonden_artiesten:
-        Artiestnaam = rij[0]
+        Artiestnaam= rij[0]
+        Artiestnummer_ID= rij[1]
     print(gevonden_artiesten)
 
 def zoekArtiestInTabel(ingevoerde_artiestnaam):
