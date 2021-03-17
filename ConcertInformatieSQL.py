@@ -82,5 +82,3 @@ vulTabelGebouwgegevensMetGegevens("Nijmegen","6512AB","Station plein 1", "Doornr
 vulTabelConcertgegevensMetGegevens(0,"Bandito",223)
 vulTabelConcertgegevensMetGegevens(1,"Pray for the Wicked",224)
 vulTabelConcertgegevensMetGegevens(2,"Pray for the Wicked",225)
-
-
