@@ -15,7 +15,7 @@ artiest.grid(row = 1, column = 0, sticky = "W")
 input_ariest = StringVar()
 inputField_artiest = Entry(venster, textvariable=input_ariest)
 inputField_artiest.grid(row = 1, column = 1, sticky = "W")
-btnSearchArtiest = Button(venster, text ="Zoek Artiest", width=10, command= ConcertInformatieSQL.zoekArtiest)
+btnSearchArtiest = Button(venster, text ="Zoek Artiest", width=15, command= ConcertInformatieSQL.zoekArtiest)
 btnSearchArtiest.grid(row=1, column=2, sticky = "W")
 
 #artiestNummer
@@ -26,7 +26,7 @@ Num_Entry = Entry(venster, textvariable=variabele)
 Num_Entry.grid(row=2, column= 1, sticky = "W")
 
 #gegevens van de artiest
-btnToonGegevens = Button(venster, text="Toon alle gegevens", width=15,  command= "toonGegevens" ) #toonGegevens moet nog geschreven worden!!!
+btnToonGegevens = Button(venster, text="Toon gegevens", width=15,  command= "toonGegevens" ) #toonGegevens moet nog geschreven worden!!!
 btnToonGegevens.grid(row = 2, column = 2, sticky = "W")
 tkst = Label(venster, text="Gegevens van de Artiest:" )
 tkst.grid(row = 3, column = 0, sticky = "W")
